@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  font-size: 100%;
+
+  --font-size-72px: 4.5rem;
+  --font-size-48px: clamp(2rem, 3.35vw, 4rem);
+  --font-size-35px: clamp(1.8rem, 2.43vw, 3.5rem);
+  --font-size-32px: 2rem;
+  --font-size-25px: clamp(1.4rem, 1.73vw, 3rem);
+  --font-size-22px: clamp(18px, 1.5277777777777777vw, 23px);
+  --font-size-20px: clamp(0.8rem, 1.38vw, 22px);
+  --font-size-18px: clamp(0.8rem, 1.25vw, 20px);
+  --font-size-16px: clamp(12.5px, 1.12vw, 18px);
+  --font-size-15px: clamp(12px, 1.0416666666666667vw, 17px);
+  --font-size-13px: 13px;
+  --font-size-12px: 12px;
+  --font-size-9px: 9px;
+
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-body-rgb: 33, 37, 41;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-bg: #fff;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/*  */
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* family */
+.family-serif {
+  font-family: sans-serif !important;
+}
+
+/* font-sizes */
+.fs-16px {
+  font-size: var(--font-size-16px);
+}
+.fs-32px {
+  font-size: var(--font-size-32px);
+}
+
+/*  */
+.bg-black {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+}
+.text-white {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+}
+
+.bs-bg-content {
+  background-color: #242735 !important;
+}
+
+/* font-weights */
+.weight-9 {
+  font-weight: 900;
+}
+.weight-8 {
+  font-weight: 800;
+}
+.weight-7 {
+  font-weight: 700;
+}
+.weight-6 {
+  font-weight: 600;
+}
+.weight-5 {
+  font-weight: 500;
+}
+.weight-4 {
+  font-weight: 400;
+}
+.weight-3 {
+  font-weight: 300;
+}
+
+/* colors */
+.blue {
+  color: var(--bs-blue);
+}

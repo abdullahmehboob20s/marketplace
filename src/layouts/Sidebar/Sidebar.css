@@ -1,0 +1,29 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16.66666667%;
+  height: 100%;
+  margin-top: 139px;
+  border-right: 1px solid #3a3f50 !important;
+  padding: 1rem;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-checkboxes {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.choose-range-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
