@@ -5,7 +5,7 @@ import Tabs from "components/Tabs/Tabs";
 import Tab from "components/Tabs/Tab";
 import Sidebar from "layouts/Sidebar/Sidebar";
 
-function SidebarNavbarWrapper() {
+function SidebarNavbarWrapper(props) {
   return (
     <div>
       <Tabs defaultTab={1}>
@@ -19,6 +19,8 @@ function SidebarNavbarWrapper() {
           />
         </div>
         <Sidebar />
+
+        <div className="wrapper-body bs-bg-content">{props.children}</div>
       </Tabs>
     </div>
   );
