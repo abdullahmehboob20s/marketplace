@@ -1,0 +1,224 @@
+.card {
+  /* flex: 0 0 auto; */
+  display: block;
+  font-weight: 400;
+  line-height: 1.5;
+  /* color: #212529; */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid rgb(143, 143, 143);
+  /* padding: 0.375rem 0.75rem; */
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  padding: 30px;
+  padding-top: 40px;
+  padding-bottom: 16px;
+}
+
+.card-content {
+  width: 100%;
+  /* height: 400px; */
+  max-width: 256px;
+  /* margin: 40px; */
+  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 14px;
+  background: url(../../assets/images/rare-background.jpg) 100% 100% / cover
+    no-repeat;
+
+  border-radius: 10px;
+  border: 8px solid #c26b00;
+  padding: 10px;
+  font-weight: bold;
+  /* margin-top: 120px;
+      margin-bottom: 80px; */
+  position: relative;
+}
+
+.info-top {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Impact";
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  color: #6c757d;
+
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.info-top .value {
+  color: #b9af1f;
+  font-weight: bold;
+}
+
+.card:hover {
+  color: #fff;
+  /* background-color: #6c757d; */
+  border-color: #6c757d;
+  background-color: rgba(109, 126, 141, 0.3);
+}
+.card:hover .info-top {
+  color: #fff;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.45em 0.75em;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.coin-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* card-header */
+.card-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 22px;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+  border: 3px solid #c26b00;
+  justify-content: space-between;
+}
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.card-header-left p {
+  font-size: 12px;
+  font-weight: bold;
+}
+.card-header-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.card-header-left img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-left: -10px;
+}
+.card-header-right img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+.card-header-right p {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* card-body-img */
+.card-body-img {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  height: 190px;
+  border-radius: 8px;
+  border: 4px solid #c26b00;
+}
+
+.card-body-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* card-footer */
+.card-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 6px;
+  background-color: white;
+  color: black;
+  border: 3px solid #c26b00;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.card-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-footer-right img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.card-footer-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-footer-left img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* card-pet-stats */
+.card-pet-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 3px;
+  color: black;
+}
+
+.card-pet-stats-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-weight: bold;
+}
+
+.card-pet-stats-left img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.card-pet-stats-right {
+  display: flex;
+  text-shadow: 0px 0px 3px white, 0px 0px 3px white;
+  gap: 1px;
+}
+
+.card-pet-stats-right .sharp {
+  color: #c26b00;
+}

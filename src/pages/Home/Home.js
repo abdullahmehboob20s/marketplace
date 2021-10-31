@@ -1,7 +1,7 @@
+import PetCard from "components/PetCard/PetCard";
 import SidebarNavbarWrapper from "layouts/SidebarNavbarWrapper/SidebarNavbarWrapper";
 import React from "react";
 import "./Home.css";
-import LGEDToken from "assets/images/LGED Token.png";
 
 function Home() {
   return (
@@ -30,23 +30,14 @@ function Home() {
       </div>
 
       <div className="cards">
-        <div className="card card-binamon">
-          <div className="card-content ">
-            <div class="info-top noto-sans ">
-              POWER <span class="value noto-sans">2</span>
-            </div>
-          </div>
-
-          <h1 className="coin-badge">
-            <img
-              height="45px"
-              src={LGEDToken}
-              class="bs-staking-item-icon"
-              alt="bmon"
-            />{" "}
-            <span class="badge bg-black">30</span>
-          </h1>
-        </div>
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
+        <PetCard />
       </div>
     </SidebarNavbarWrapper>
   );
