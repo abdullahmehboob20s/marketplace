@@ -10,27 +10,29 @@ import Range from "components/Range/Range";
 function Sidebar() {
   return (
     <div className="sidebar bs-bg-content">
-      <div className="sidebar-header">
-        <p className="fs-32px text-white weight-5 family-serif">Filter</p>
-        <Link className="blue">Clear filter</Link>
-      </div>
-
-      {/* checkboxes */}
-      <div className="filter-elements">
-        <p className="text-white fs-16px">Element:</p>
-        <div className="filter-checkboxes">
-          <CheckBox img={rareIcon} title="Rare" />
-          <CheckBox img={EpicIcon} title="Epic" />
-          <CheckBox img={legendaryIcon} title="Legendary" />
+      <div className="sidebar-wrapper">
+        <div className="sidebar-header">
+          <p className="fs-32px text-white weight-5 family-serif">Filter</p>
+          <Link className="blue">Clear filter</Link>
         </div>
-      </div>
 
-      {/* range-sliders */}
-      <div className="choose-range-wrapper">
-        <Range rangeName="Attack" />
-        <Range rangeName="Defence" />
-        <Range rangeName="HP" />
-        <Range rangeName="Speed" />
+        {/* checkboxes */}
+        <div className="filter-elements">
+          <p className="text-white fs-16px">Element:</p>
+          <div className="filter-checkboxes">
+            <CheckBox img={rareIcon} title="Rare" />
+            <CheckBox img={EpicIcon} title="Epic" />
+            <CheckBox img={legendaryIcon} title="Legendary" />
+          </div>
+        </div>
+
+        {/* range-sliders */}
+        <div className="choose-range-wrapper">
+          <Range rangeName="Attack" />
+          <Range rangeName="Defence" />
+          <Range rangeName="HP" />
+          <Range rangeName="Speed" />
+        </div>
       </div>
     </div>
   );

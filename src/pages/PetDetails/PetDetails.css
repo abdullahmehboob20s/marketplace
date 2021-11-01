@@ -1,0 +1,65 @@
+.pet-details-wrapper {
+  max-width: 856px;
+  margin: 0 auto;
+
+  width: 90%;
+
+  padding-top: 0.5rem;
+}
+
+.pet-detail-back-icon {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  font-size: 16px;
+}
+
+.pet-details {
+  display: flex;
+  justify-content: center;
+
+  gap: clamp(50px, 6.666666666666667vw, 96px);
+
+  margin-top: 4rem;
+
+  flex-wrap: wrap;
+}
+
+.pet-d-card {
+  margin-top: 1rem;
+}
+
+.pet-details-content {
+  width: 424px;
+  height: 572px;
+  background: #2c243a;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: 30px solid transparent;
+  padding: 0;
+  -o-border-image: url(../../assets//images/border-panel-sale-code.png) 50 round;
+  border-image: url(../../assets//images/border-panel-sale-code.png) 50 round;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-view-card {
+  position: absolute;
+  left: 50%;
+  margin-left: -117px;
+  top: -30px;
+  width: 237px;
+  height: 56px;
+  background-image: url(../../assets/images/title-panel-sale-code.png);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.7rem;
+  font-weight: 400;
+}

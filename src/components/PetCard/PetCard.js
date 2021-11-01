@@ -7,12 +7,14 @@ import wolfAnimation from "assets/images/wolf-animation.gif";
 import speedIcon from "assets/images/speed-icon.png";
 import attackIcon from "assets/images/attack-icon.png";
 import hpIcon from "assets/images/hp-icon.png";
+import { Link } from "react-router-dom";
 
-function PetCard() {
+function PetCard(props) {
+  const { wrapper = true } = props;
   return (
-    <div className="card ">
-      <div className="card-content ">
-        <div class="info-top noto-sans ">
+    <div className={wrapper ? `card` : ""}>
+      <div className="card-content">
+        <div class={`info-top noto-sans ${wrapper ? "" : "text-white  "}`}>
           POWER <span class="value noto-sans">2</span>
         </div>
 
@@ -57,15 +59,19 @@ function PetCard() {
         </div>
       </div>
 
-      <h1 className="coin-badge">
-        <img
-          height="45px"
-          src={LGEDToken}
-          class="bs-staking-item-icon"
-          alt="bmon"
-        />{" "}
-        <span class="badge bg-black">30</span>
-      </h1>
+      {wrapper ? (
+        <h1 className="coin-badge">
+          <img
+            height="45px"
+            src={LGEDToken}
+            class="bs-staking-item-icon"
+            alt="bmon"
+          />{" "}
+          <span class="badge bg-black">30</span>
+        </h1>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

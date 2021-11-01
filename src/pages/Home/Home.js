@@ -1,7 +1,9 @@
 import PetCard from "components/PetCard/PetCard";
 import SidebarNavbarWrapper from "layouts/SidebarNavbarWrapper/SidebarNavbarWrapper";
 import React from "react";
+import Pagination from "components/Pagination/Pagination";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -30,15 +32,33 @@ function Home() {
       </div>
 
       <div className="cards">
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
+        <Link to="/pet-details">
+          <PetCard />
+        </Link>
       </div>
+
+      <Pagination />
     </SidebarNavbarWrapper>
   );
 }

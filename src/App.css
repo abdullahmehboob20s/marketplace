@@ -151,3 +151,13 @@ a {
 .blue {
   color: var(--bs-blue);
 }
+
+/*  */
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+/*  */
+.height-full {
+  height: 100% !important;
+}

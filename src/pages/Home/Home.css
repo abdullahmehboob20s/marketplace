@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.5rem;
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -40,3 +40,21 @@ option {
 /* .card-binamon * {
   box-sizing: content-box;
 } */
+
+@media (max-width: 1300px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .cards-header {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    margin-bottom: 1.6rem;
+  }
+}
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
