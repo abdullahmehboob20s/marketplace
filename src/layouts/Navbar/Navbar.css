@@ -15,12 +15,24 @@
   width: clamp(200px, 20.833333333333332vw, 300px);
 }
 
+.navbar-connect-wallet {
+  border: 1px solid #6b7185 !important;
+  color: white;
+  padding: 0.7rem 1rem;
+}
+
 @media (max-width: 760px) {
   .navbar {
     padding: 0 1rem;
   }
+}
 
+@media (max-width: 500px) {
+  .navbar-connect-wallet {
+    font-size: 11px;
+    padding: 0.5rem 1rem;
+  }
   .navbar-logo {
-    width: 170px;
+    width: 160px;
   }
 }

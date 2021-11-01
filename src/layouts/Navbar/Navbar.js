@@ -9,7 +9,10 @@ function Navbar() {
       <Link to="/">
         <img className="navbar-logo" src={monopetLogo} alt="" />
       </Link>
-      <Link className="text-white weight-7 fs-16px uppercase">
+      <Link
+        to="/"
+        className="weight-7 fs-16px uppercase navbar-connect-wallet rounded"
+      >
         Connect Wallet
       </Link>
     </div>

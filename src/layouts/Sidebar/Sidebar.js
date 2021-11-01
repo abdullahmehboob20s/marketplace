@@ -18,7 +18,7 @@ function Sidebar() {
 
         {/* checkboxes */}
         <div className="filter-elements">
-          <p className="text-white fs-16px">Element:</p>
+          <p className="text-white fs-16px">Type:</p>
           <div className="filter-checkboxes">
             <CheckBox img={rareIcon} title="Rare" />
             <CheckBox img={EpicIcon} title="Epic" />

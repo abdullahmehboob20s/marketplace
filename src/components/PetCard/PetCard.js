@@ -14,10 +14,6 @@ function PetCard(props) {
   return (
     <div className={wrapper ? `card` : ""}>
       <div className="card-content">
-        <div class={`info-top noto-sans ${wrapper ? "" : "text-white  "}`}>
-          POWER <span class="value noto-sans">2</span>
-        </div>
-
         <div className="card-header">
           <div className="card-header-left">
             <img src={rareIcon} alt="" className="card-header-image" />

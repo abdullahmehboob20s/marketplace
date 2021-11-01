@@ -3,9 +3,14 @@
   top: 0;
   left: 0;
   width: 16.66666667%;
-  height: 100%;
-  margin-top: 139px;
+  height: 100vh;
+  padding-top: 139px;
+  padding-bottom: 1rem;
   border-right: 1px solid #3a3f50 !important;
+  overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar {
+  width: 0;
 }
 .sidebar-wrapper {
   padding: 1rem;

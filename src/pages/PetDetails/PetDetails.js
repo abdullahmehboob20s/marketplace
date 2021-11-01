@@ -26,9 +26,9 @@ function PetDetails() {
         </Link>
 
         <div className="pet-details">
-          <div className="pet-d-card">
-            <PetCard wrapper={false} />
-          </div>
+          {/* <div className="pet-d-card"> */}
+          <PetCard wrapper={false} />
+          {/* </div> */}
 
           <div className="pet-details-content">
             <div class="title-view-card">
