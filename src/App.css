@@ -87,6 +87,10 @@ body {
   --bs-body-bg: #fff;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /*  */
 .noto-sans {
   font-family: "Noto Sans", sans-serif;
@@ -106,9 +110,41 @@ a {
   font-family: sans-serif !important;
 }
 
+/* --font-size-72px: 4.5rem;
+--font-size-48px: clamp(2rem, 3.35vw, 4rem);
+--font-size-35px: clamp(1.8rem, 2.43vw, 3.5rem);
+--font-size-32px: 2rem;
+--font-size-25px: clamp(1.4rem, 1.73vw, 3rem);
+--font-size-22px: clamp(18px, 1.5277777777777777vw, 23px);
+--font-size-20px: clamp(0.8rem, 1.38vw, 22px);
+--font-size-18px: clamp(0.8rem, 1.25vw, 20px);
+--font-size-16px: clamp(12.5px, 1.12vw, 18px);
+--font-size-15px: clamp(12px, 1.0416666666666667vw, 17px);
+--font-size-13px: 13px;
+--font-size-12px: 12px;
+--font-size-9px: 9px; */
+
 /* font-sizes */
+.fs-13px {
+  font-size: 13px;
+}
+.fs-14px {
+  font-size: 14px;
+}
 .fs-16px {
   font-size: var(--font-size-16px);
+}
+.fs-18px {
+  font-size: var(--font-size-18px);
+}
+.fs-20px {
+  font-size: var(--font-size-20px);
+}
+.fs-25px {
+  font-size: var(--font-size-25px);
+}
+.fs-28px {
+  font-size: 28px;
 }
 .fs-32px {
   font-size: var(--font-size-32px);

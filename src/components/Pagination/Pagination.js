@@ -6,7 +6,7 @@ import { decrement, increment, setCounter } from "redux/counter";
 function Pagination(props) {
   let [showPerPage, setshowPerPage] = props.perPageState;
   let [pagination, setPagination] = props.paginationState;
-  let { data } = useSelector((state) => state.petDetails);
+  let { filteredArray } = useSelector((state) => state.petDetails);
   let { counter } = useSelector((state) => state.counter);
   let dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ function Pagination(props) {
         return;
       }
     } else {
-      let dividing = Math.ceil(data.length / showPerPage);
+      let dividing = Math.ceil(filteredArray.length / showPerPage);
       if (dividing === counter) return;
       dispatch(increment());
     }
@@ -40,7 +40,7 @@ function Pagination(props) {
     // }
     if (
       e.target.value >= 1 &&
-      e.target.value <= Math.round(data.length / showPerPage)
+      e.target.value <= Math.round(filteredArray.length / showPerPage)
     ) {
       dispatch(setCounter(e.target.value));
     }
@@ -80,7 +80,7 @@ function Pagination(props) {
           value={counter}
         />
         <p className="pagination-title fs-16px">
-          of {Math.ceil(data.length / showPerPage)}
+          of {Math.ceil(filteredArray?.length / showPerPage)}
         </p>
       </div>
 

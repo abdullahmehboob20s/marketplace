@@ -12,7 +12,7 @@
 }
 .navbar-logo {
   display: block;
-  width: clamp(200px, 20.833333333333332vw, 300px);
+  width: clamp(200px, 20.833333333333332vw, 250px);
 }
 
 .navbar-connect-wallet {

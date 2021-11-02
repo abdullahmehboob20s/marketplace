@@ -11,7 +11,7 @@ function Range(props) {
 
   return (
     <div className="choose-range">
-      <p className="text-white fs-16px">{rangeName}:</p>
+      <p className="text-white fs-14px">{rangeName}:</p>
       <div className="range-wrap">
         <input
           type="range"

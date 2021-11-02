@@ -8,7 +8,8 @@ import hpIcon from "assets/images/hp-icon.png";
 
 function PetCard(props) {
   const { wrapper = true } = props;
-  const { bg, typeIcon, gif, petId } = props?.petData;
+  const { bg, typeIcon, gif, petId, petName, hp, attack, defence, speed } =
+    props?.petData;
   return (
     <div className={wrapper ? `card` : ""}>
       <div
@@ -20,12 +21,12 @@ function PetCard(props) {
         <div className="card-header">
           <div className="card-header-left">
             <img src={typeIcon} alt="" className="card-header-image" />
-            <p className="noto-sans ">GALADRIEL</p>
+            <p className="noto-sans ">{petName}</p>
           </div>
 
           <div className="card-header-right">
             <img src={shieldIcon} alt="" className="card-header-image" />
-            <p className="noto-sans ">10</p>
+            <p className="noto-sans ">{defence}</p>
           </div>
         </div>
 
@@ -37,11 +38,11 @@ function PetCard(props) {
           <div className="card-pet-stats">
             <div className="card-pet-stats-left">
               <img src={hpIcon} alt="" />
-              <p>1</p>
+              <p>{hp}</p>
             </div>
             <div className="card-pet-stats-right">
               <span class="sharp">#</span>
-              {petId}
+              {speed}
             </div>
           </div>
         </div>
@@ -53,7 +54,7 @@ function PetCard(props) {
 
           <div className="card-footer-right">
             <img src={attackIcon} alt="" />
-            <p className="noto-sans ">1</p>
+            <p className="noto-sans ">{attack}</p>
           </div>
         </div>
       </div>

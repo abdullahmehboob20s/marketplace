@@ -12,11 +12,15 @@ import rareIcon from "assets/images/rare-icon.png";
 import EpicIcon from "assets/images/epic-icon.png";
 import legendaryIcon from "assets/images/legendary-icon.png";
 import Range from "components/Range/Range";
+import { useDispatch } from "react-redux";
+import { filterPets } from "redux/petDetails";
 
 function SidebarNavbarWrapper(props) {
   const { sidebar = true, tabBar = true } = props;
   const [open, setOpen] = React.useState(false);
   const [showFilterArea, setShowFilterArea] = React.useState(false);
+  const dispatch = useDispatch();
+
   // const [height, setHeight] = React.useState(152);
 
   const menuRef = React.useRef();
@@ -100,7 +104,12 @@ function SidebarNavbarWrapper(props) {
                   <p className="fs-32px text-white weight-5 family-serif">
                     Filter
                   </p>
-                  <Link className="blue">Clear filter</Link>
+                  <div
+                    className="blue pointer fs-16px"
+                    onClick={() => dispatch(filterPets("all"))}
+                  >
+                    Clear filter
+                  </div>{" "}
                 </div>
                 {/* checkboxes */}
                 <div className="filter-elements">
