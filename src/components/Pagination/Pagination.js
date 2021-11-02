@@ -50,7 +50,7 @@ function Pagination(props) {
     <div className="pagination">
       <button
         onClick={() => onButtonClick("prev")}
-        class="pagination-btn rounded disabled"
+        class={`pagination-btn rounded ${counter == 1 ? "disabled" : ""}`}
         id="btnPreviousPagination"
         aria-label="Previous"
         disabled=""
@@ -74,7 +74,7 @@ function Pagination(props) {
         <p className="pagination-title fs-16px">Page</p>
         <input
           type="text"
-          className="pagination-input rounded"
+          className={`pagination-input rounded`}
           onChange={handleChange}
           onClick={(e) => e.target.select()}
           value={counter}
@@ -86,7 +86,11 @@ function Pagination(props) {
 
       <button
         onClick={() => onButtonClick("next")}
-        class="pagination-btn rounded "
+        class={`pagination-btn rounded  ${
+          counter == Math.round(filteredArray.length / showPerPage)
+            ? "disabled"
+            : ""
+        }`}
         id="btnNextPagination"
         aria-label="Next"
       >
