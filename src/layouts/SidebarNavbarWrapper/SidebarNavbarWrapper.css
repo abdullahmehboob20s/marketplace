@@ -36,7 +36,7 @@
 }
 
 .wrapper-body {
-  border: 2px solid transparent;
+  border-bottom: 2px solid transparent;
   margin-top: 97px;
   min-height: calc(100vh - 97px);
 

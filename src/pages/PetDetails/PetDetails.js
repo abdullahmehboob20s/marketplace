@@ -4,7 +4,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PetDetails.css";
 
-function PetDetails() {
+function PetDetails(props) {
+  const { petData } = props.location;
   return (
     <SidebarNavbarWrapper sidebar={false} tabBar={false}>
       <div className="pet-details-wrapper ">
@@ -27,7 +28,7 @@ function PetDetails() {
 
         <div className="pet-details">
           {/* <div className="pet-d-card"> */}
-          <PetCard wrapper={false} />
+          <PetCard wrapper={false} petData={petData} />
           {/* </div> */}
 
           <div className="pet-details-content">

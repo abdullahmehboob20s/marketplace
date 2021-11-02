@@ -1,22 +1,25 @@
 import React from "react";
 import "./PetCard.css";
 import LGEDToken from "assets/images/LGED Token.png";
-import rareIcon from "assets/images/rare-icon.png";
 import shieldIcon from "assets/images/shield-icon.png";
-import wolfAnimation from "assets/images/wolf-animation.gif";
 import speedIcon from "assets/images/speed-icon.png";
 import attackIcon from "assets/images/attack-icon.png";
 import hpIcon from "assets/images/hp-icon.png";
-import { Link } from "react-router-dom";
 
 function PetCard(props) {
   const { wrapper = true } = props;
+  const { bg, typeIcon, gif, petId } = props?.petData;
   return (
     <div className={wrapper ? `card` : ""}>
-      <div className="card-content">
+      <div
+        className="card-content"
+        style={{
+          backgroundImage: `url(${bg})`,
+        }}
+      >
         <div className="card-header">
           <div className="card-header-left">
-            <img src={rareIcon} alt="" className="card-header-image" />
+            <img src={typeIcon} alt="" className="card-header-image" />
             <p className="noto-sans ">GALADRIEL</p>
           </div>
 
@@ -28,7 +31,7 @@ function PetCard(props) {
 
         <div className="card-body">
           <div className="card-body-img">
-            <img src={wolfAnimation} alt="" />
+            <img src={gif} alt="" />
           </div>
 
           <div className="card-pet-stats">
@@ -38,7 +41,7 @@ function PetCard(props) {
             </div>
             <div className="card-pet-stats-right">
               <span class="sharp">#</span>
-              65440
+              {petId}
             </div>
           </div>
         </div>

@@ -33,8 +33,11 @@
   margin-bottom: 10px;
   display: inline-block;
   font-size: 14px;
-  background: url(../../assets/images/rare-background.jpg) 100% 100% / cover
-    no-repeat;
+  /* background: url(../../assets/images/rare-background.jpg); */
+  /* 100% 100% / cover no-repeat */
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: cover;
 
   border-radius: 10px;
   border: 8px solid #c26b00;

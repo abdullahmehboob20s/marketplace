@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Pagination.css";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, setCounter } from "redux/counter";
 
-function Pagination() {
+function Pagination(props) {
+  let [showPerPage, setshowPerPage] = props.perPageState;
+  let [pagination, setPagination] = props.paginationState;
+  let { data } = useSelector((state) => state.petDetails);
+  let { counter } = useSelector((state) => state.counter);
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    let value = showPerPage * counter;
+
+    setPagination({
+      start: value - showPerPage,
+      end: value,
+    });
+    console.log(counter);
+  }, [counter]);
+
+  let onButtonClick = (type) => {
+    if (type === "prev") {
+      if (counter !== 1) {
+        dispatch(decrement());
+      } else {
+        return;
+      }
+    } else {
+      let dividing = Math.ceil(data.length / showPerPage);
+      if (dividing === counter) return;
+      dispatch(increment());
+    }
+  };
+
+  let handleChange = (e) => {
+    // if (e.target.value < 1) {
+    //   dispatch(setCounter(1));
+    // }
+    if (
+      e.target.value >= 1 &&
+      e.target.value <= Math.round(data.length / showPerPage)
+    ) {
+      dispatch(setCounter(e.target.value));
+    }
+  };
+
   return (
     <div className="pagination">
       <button
+        onClick={() => onButtonClick("prev")}
         class="pagination-btn rounded disabled"
         id="btnPreviousPagination"
         aria-label="Previous"
@@ -27,11 +72,20 @@ function Pagination() {
 
       <div className="pagination-input">
         <p className="pagination-title fs-16px">Page</p>
-        <input type="text" className="pagination-input rounded" value="1" />
-        <p className="pagination-title fs-16px">of 242</p>
+        <input
+          type="text"
+          className="pagination-input rounded"
+          onChange={handleChange}
+          onClick={(e) => e.target.select()}
+          value={counter}
+        />
+        <p className="pagination-title fs-16px">
+          of {Math.ceil(data.length / showPerPage)}
+        </p>
       </div>
 
       <button
+        onClick={() => onButtonClick("next")}
         class="pagination-btn rounded "
         id="btnNextPagination"
         aria-label="Next"

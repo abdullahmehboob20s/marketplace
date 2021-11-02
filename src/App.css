@@ -7,6 +7,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: #242735 !important;
+}
+
 :root {
   font-size: 100%;
 
