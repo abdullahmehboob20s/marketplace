@@ -42,14 +42,15 @@ function PetCard(props) {
             </div>
             <div className="card-pet-stats-right">
               <span class="sharp">#</span>
-              {speed}
+              {petId}
             </div>
           </div>
         </div>
 
         <div className="card-footer">
-          <div className="card-footer-left">
+          <div className="card-footer-right">
             <img src={speedIcon} alt="" />
+            <p className="noto-sans ">{speed}</p>
           </div>
 
           <div className="card-footer-right">
