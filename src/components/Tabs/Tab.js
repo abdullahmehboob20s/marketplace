@@ -8,7 +8,12 @@ function Tab(props) {
   return (
     <div
       className={active ? className + " " + activeClassName : className}
-      onClick={() => setActiveTab(active ? "" : tabIndex)}
+      onClick={() =>
+        setActiveTab(
+          // active ? "" :
+          tabIndex
+        )
+      }
     >
       {label}
     </div>

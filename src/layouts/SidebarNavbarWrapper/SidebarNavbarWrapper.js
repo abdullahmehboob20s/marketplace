@@ -77,17 +77,7 @@ function SidebarNavbarWrapper(props) {
                 <div className="dropdown-menu ">
                   <Tab
                     tabIndex={1}
-                    label="Genesis Monsters"
-                    className="dropdown-menu-btn"
-                  />
-                  <Tab
-                    tabIndex={2}
-                    label="Energy Cards"
-                    className="dropdown-menu-btn"
-                  />
-                  <Tab
-                    tabIndex={3}
-                    label="Z1 Monsters"
+                    label="Pets"
                     className="dropdown-menu-btn"
                   />
                 </div>

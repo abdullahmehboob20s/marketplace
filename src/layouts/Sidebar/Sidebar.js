@@ -8,6 +8,7 @@ import CheckBox from "components/CheckBox/CheckBox";
 import Range from "components/Range/Range";
 import { useDispatch } from "react-redux";
 import { filterPets } from "redux/petDetails";
+import RangeSlider from "components/RangeSlider/RangeSlider";
 
 function Sidebar() {
   const dispatch = useDispatch();
@@ -36,10 +37,15 @@ function Sidebar() {
 
         {/* range-sliders */}
         <div className="choose-range-wrapper">
-          <Range rangeName="Attack" />
+          {/* <Range rangeName="Attack" />
           <Range rangeName="Defence" />
           <Range rangeName="HP" />
-          <Range rangeName="Speed" />
+          <Range rangeName="Speed" /> */}
+
+          <RangeSlider rangeName="Attack" />
+          <RangeSlider rangeName="Defence" />
+          <RangeSlider rangeName="HP" />
+          <RangeSlider rangeName="Speed" />
         </div>
       </div>
     </div>

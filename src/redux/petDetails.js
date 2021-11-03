@@ -13,7 +13,6 @@ import sharkGif from "assets/images/shark-animation.gif";
 // Epic assets import
 import epicIcon from "assets/images/epic-icon.png";
 import epicBg from "assets/images/epic-background.jpg";
-import epicGif from "assets/images/unicorn-animation.gif";
 import kitsuneGif from "assets/images/kitsune-animation.gif";
 import cerberusGif from "assets/images/cerberus-animation.gif";
 import chimeraGif from "assets/images/chimera-animation.gif";
