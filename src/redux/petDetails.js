@@ -32,10 +32,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Rhinoceros",
-      hp: "6,500",
-      attack: "525",
-      defence: "465",
-      speed: "100",
+      hp: 6500,
+      attack: 525,
+      defence: 465,
+      speed: 100,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -44,10 +44,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Bear",
-      hp: "6,500",
-      attack: "475",
-      defence: "480",
-      speed: "90",
+      hp: 6500,
+      attack: 475,
+      defence: 480,
+      speed: 90,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -56,10 +56,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Hippotamus",
-      hp: "6,500",
-      attack: "425",
-      defence: "470",
-      speed: "90",
+      hp: 6500,
+      attack: 425,
+      defence: 470,
+      speed: 90,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -68,10 +68,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Wolf",
-      hp: "5,800",
-      attack: "500",
-      defence: "400",
-      speed: "100",
+      hp: 5800,
+      attack: 500,
+      defence: 400,
+      speed: 100,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -80,10 +80,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Griffin",
-      hp: "6,300",
-      attack: "575",
-      defence: "425",
-      speed: "115",
+      hp: 6300,
+      attack: 575,
+      defence: 425,
+      speed: 115,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -92,10 +92,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Shark",
-      hp: "6,450",
-      attack: "600",
-      defence: "430",
-      speed: "105",
+      hp: 6450,
+      attack: 600,
+      defence: 430,
+      speed: 105,
       type: "rare",
       typeIcon: rareIcon,
       bg: rareBg,
@@ -105,10 +105,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Kitsune",
-      hp: "7,500",
-      attack: "600",
-      defence: "445",
-      speed: "110",
+      hp: 7500,
+      attack: 600,
+      defence: 445,
+      speed: 110,
       type: "epic",
       typeIcon: epicIcon,
       bg: epicBg,
@@ -117,10 +117,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Cerberus",
-      hp: "7,500",
-      attack: "625",
-      defence: "510",
-      speed: "110",
+      hp: 7500,
+      attack: 625,
+      defence: 510,
+      speed: 110,
       type: "epic",
       typeIcon: epicIcon,
       bg: epicBg,
@@ -129,10 +129,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Chimera",
-      hp: "7,500",
-      attack: "775",
-      defence: "450",
-      speed: "110",
+      hp: 7500,
+      attack: 775,
+      defence: 450,
+      speed: 110,
       type: "epic",
       typeIcon: epicIcon,
       bg: epicBg,
@@ -141,10 +141,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Centaur",
-      hp: "9,000",
-      attack: "550",
-      defence: "525",
-      speed: "95",
+      hp: 9000,
+      attack: 550,
+      defence: 525,
+      speed: 95,
       type: "epic",
       typeIcon: epicIcon,
       bg: epicBg,
@@ -154,10 +154,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Phoenix",
-      hp: "7,500",
-      attack: "850",
-      defence: "450",
-      speed: "120",
+      hp: 7500,
+      attack: 850,
+      defence: 450,
+      speed: 120,
       type: "legendary",
       typeIcon: legendaryIcon,
       bg: legendaryBg,
@@ -166,10 +166,10 @@ const initialState = {
     {
       petId: nanoid(),
       petName: "Unicorn",
-      hp: "10.000",
-      attack: "600",
-      defence: "450",
-      speed: "105",
+      hp: 10000,
+      attack: 600,
+      defence: 450,
+      speed: 105,
       type: "legendary",
       typeIcon: legendaryIcon,
       bg: legendaryBg,
@@ -177,6 +177,14 @@ const initialState = {
     },
   ],
   filteredArray: [],
+  newArr: [],
+  rangeActions: [],
+  ranges: {
+    attack: 0,
+    defence: 0,
+    hp: 0,
+    speed: 0,
+  },
   checkboxes: {
     rare: false,
     epic: false,
@@ -188,7 +196,7 @@ initialState["data"] = initialState["data"].sort(() => Math.random() - 0.5);
 initialState["filteredArray"] = initialState["data"];
 
 export const petDetails = createSlice({
-  name: "counter",
+  name: "data",
   initialState,
   reducers: {
     filterPets: (state, action) => {
@@ -216,9 +224,26 @@ export const petDetails = createSlice({
         };
       }
     },
+    filterPetsByRange: (state, action) => {},
+
+    setRangeValue: (state, action) => {
+      const { attack, defence, hp, speed } = state.ranges;
+
+      state.ranges[action.payload.name] = parseInt(action.payload.value);
+
+      if (state.ranges[action.payload.name] === 0) {
+        state.filteredArray = state.data;
+        return;
+      }
+
+      state.filteredArray = state.data.filter(
+        (pet, index) => pet[action.payload.name] <= action.payload.value
+      );
+    },
   },
 });
 
-export const { filterPets } = petDetails.actions;
+export const { filterPets, filterPetsByRange, setRangeValue } =
+  petDetails.actions;
 
 export default petDetails.reducer;

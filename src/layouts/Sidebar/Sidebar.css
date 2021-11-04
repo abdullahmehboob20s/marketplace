@@ -29,10 +29,10 @@
 }
 
 .choose-range-wrapper {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 1rem;
 }
 
 @media (max-width: 1300px) {

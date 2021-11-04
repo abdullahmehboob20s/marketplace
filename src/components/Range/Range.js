@@ -1,32 +1,48 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { filterPetsByRange, setRangeValue } from "redux/petDetails";
 import "./Range.css";
 
 function Range(props) {
   const { rangeName } = props;
   const [rangeSlider, setRangeSlider] = React.useState(0);
+  const { ranges } = useSelector((state) => state.petDetails);
+  const dispatch = useDispatch();
+  let data = {
+    type: rangeName.toLowerCase(),
+    value: parseInt(rangeSlider),
+  };
 
   const handleSlider = (e) => {
     setRangeSlider(e.target.value);
+    // dispatch(filterPetsByRange(data));
+    dispatch(setRangeValue({ name: e.target.name, value: e.target.value }));
   };
+
+  // console.log(ranges);
 
   return (
     <div className="choose-range">
-      <p className="text-white fs-14px">{rangeName}:</p>
+      <p className="text-white fs-14px">
+        {rangeName}: {ranges[rangeName.toLowerCase()]}
+      </p>
       <div className="range-wrap">
         <input
           type="range"
           className="form-range range"
           min="0"
-          max="10"
+          max="10000"
+          name={rangeName.toLowerCase()}
           onChange={handleSlider}
-          value={rangeSlider}
+          value={ranges[rangeName.toLowerCase()]}
         />
-        <output
+        {/* <output
           className="bubble"
           style={{ left: `calc(${rangeSlider}% * 9 )` }}
         >
           {rangeSlider}
-        </output>
+        </output> */}
       </div>
     </div>
   );

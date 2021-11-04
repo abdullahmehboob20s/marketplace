@@ -37,15 +37,15 @@ function Sidebar() {
 
         {/* range-sliders */}
         <div className="choose-range-wrapper">
-          {/* <Range rangeName="Attack" />
+          <Range rangeName="Attack" />
           <Range rangeName="Defence" />
           <Range rangeName="HP" />
-          <Range rangeName="Speed" /> */}
+          <Range rangeName="Speed" />
 
-          <RangeSlider rangeName="Attack" />
+          {/* <RangeSlider rangeName="Attack" />
           <RangeSlider rangeName="Defence" />
           <RangeSlider rangeName="HP" />
-          <RangeSlider rangeName="Speed" />
+          <RangeSlider rangeName="Speed" /> */}
         </div>
       </div>
     </div>

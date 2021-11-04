@@ -1,16 +1,27 @@
 import React from "react";
 import { Range, getTrackBackground } from "react-range";
+import { petDetails } from "redux/petDetails";
 import "./RangeSlider.css";
 
 const STEP = 0.1;
 const MIN = 0;
-const MAX = 10;
+const MAX = 10000;
+
+const mapStateToProps = (props) => {
+  return {
+    rng: props.petDetails,
+  };
+};
 
 class RangeSlider extends React.Component {
   state = {
     values: [0],
   };
+
   render(props) {
+    this.handleChange = (values) => {
+      this.setState({ values });
+    };
     return (
       <div className="range-slider">
         <p className="text-white fs-14px">{this.props.rangeName}:</p>
@@ -19,7 +30,7 @@ class RangeSlider extends React.Component {
           step={STEP}
           min={MIN}
           max={MAX}
-          onChange={(values) => this.setState({ values })}
+          onChange={(values) => this.handleChange(values)}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
@@ -68,7 +79,7 @@ class RangeSlider extends React.Component {
               }}
             >
               <div className="range-tooltip">
-                {this.state.values[0].toFixed(3)}
+                {this.state.values[0].toFixed(0)}
               </div>
             </div>
           )}
