@@ -7,7 +7,7 @@ import legendaryIcon from "assets/images/legendary-icon.png";
 import CheckBox from "components/CheckBox/CheckBox";
 import Range from "components/Range/Range";
 import { useDispatch } from "react-redux";
-import { filterPets } from "redux/petDetails";
+import { clearFilter, filterPets } from "redux/petDetails";
 import RangeSlider from "components/RangeSlider/RangeSlider";
 
 function Sidebar() {
@@ -19,7 +19,7 @@ function Sidebar() {
           <p className="fs-28px text-white weight-5 family-serif">Filter</p>
           <div
             className="blue pointer fs-16px"
-            onClick={() => dispatch(filterPets("all"))}
+            onClick={() => dispatch(clearFilter())}
           >
             Clear filter
           </div>

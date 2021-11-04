@@ -8,8 +8,18 @@ import hpIcon from "assets/images/hp-icon.png";
 
 function PetCard(props) {
   const { wrapper = true } = props;
-  const { bg, typeIcon, gif, petId, petName, hp, attack, defence, speed } =
-    props?.petData;
+  const {
+    bg,
+    typeIcon,
+    gif,
+    petId,
+    petName,
+    hp,
+    attack,
+    defence,
+    speed,
+    price,
+  } = props?.petData;
   return (
     <div className={wrapper ? `card` : ""}>
       <div
@@ -68,7 +78,7 @@ function PetCard(props) {
             class="bs-staking-item-icon"
             alt="bmon"
           />{" "}
-          <span class="badge bg-black">30</span>
+          <span class="badge bg-black">{price}</span>
         </h1>
       ) : (
         ""

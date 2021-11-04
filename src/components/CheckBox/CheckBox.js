@@ -12,9 +12,9 @@ function CheckBox(props) {
   const handleChange = (e, type) => {
     let isChecked = e.target.checked;
     if (isChecked) {
-      dispatch(filterPets(type));
+      dispatch(filterPets({ type, value: true }));
     } else {
-      dispatch(filterPets("all"));
+      dispatch(filterPets({ type, value: false }));
     }
   };
 

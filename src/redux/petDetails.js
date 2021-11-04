@@ -31,6 +31,7 @@ const initialState = {
   data: [
     {
       petId: nanoid(),
+      price: 100,
       petName: "Rhinoceros",
       hp: 6500,
       attack: 525,
@@ -43,6 +44,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 12,
       petName: "Bear",
       hp: 6500,
       attack: 475,
@@ -55,6 +57,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 300,
       petName: "Hippotamus",
       hp: 6500,
       attack: 425,
@@ -67,6 +70,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 99,
       petName: "Wolf",
       hp: 5800,
       attack: 500,
@@ -79,6 +83,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 299,
       petName: "Griffin",
       hp: 6300,
       attack: 575,
@@ -91,6 +96,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 130,
       petName: "Shark",
       hp: 6450,
       attack: 600,
@@ -104,6 +110,7 @@ const initialState = {
 
     {
       petId: nanoid(),
+      price: 55,
       petName: "Kitsune",
       hp: 7500,
       attack: 600,
@@ -116,6 +123,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 89,
       petName: "Cerberus",
       hp: 7500,
       attack: 625,
@@ -128,6 +136,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 432,
       petName: "Chimera",
       hp: 7500,
       attack: 775,
@@ -140,6 +149,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 312,
       petName: "Centaur",
       hp: 9000,
       attack: 550,
@@ -153,6 +163,7 @@ const initialState = {
 
     {
       petId: nanoid(),
+      price: 31,
       petName: "Phoenix",
       hp: 7500,
       attack: 850,
@@ -165,6 +176,7 @@ const initialState = {
     },
     {
       petId: nanoid(),
+      price: 432,
       petName: "Unicorn",
       hp: 10000,
       attack: 600,
@@ -199,36 +211,87 @@ export const petDetails = createSlice({
   name: "data",
   initialState,
   reducers: {
+    // filter by checkboxes
     filterPets: (state, action) => {
-      if (action.payload === "rare") {
-        state.filteredArray = [
-          ...state.data.filter((pet, index) => pet.type == "rare"),
+      state.checkboxes[action.payload.type] = action.payload.value;
+
+      if (action.payload.value) {
+        state.newArr = [
+          ...state.newArr,
+          ...state.data.filter((pet, index) => pet.type == action.payload.type),
         ];
-        state.checkboxes[action.payload] = true;
-      } else if (action.payload === "epic") {
-        state.filteredArray = state.data.filter(
-          (pet, index) => pet.type === "epic"
-        );
-        state.checkboxes[action.payload] = true;
-      } else if (action.payload === "legendary") {
-        state.filteredArray = state.data.filter(
-          (pet, index) => pet.type === "legendary"
-        );
-        state.checkboxes[action.payload] = true;
-      } else if (action.payload == "all") {
+      } else if (!action.payload.value) {
+        state.newArr = [
+          ...state.newArr.filter(
+            (pet, index) => pet.type !== action.payload.type
+          ),
+        ];
+      } else {
+        console.log("true");
+      }
+
+      if (state.newArr.length === 0) {
         state.filteredArray = state.data;
-        state.checkboxes = {
-          rare: false,
-          epic: false,
-          legendary: false,
-        };
+        return;
+      }
+
+      state.filteredArray = state.newArr;
+    },
+
+    // filter of stats of pets
+    filterStats: (state, action) => {
+      console.log(action.payload);
+      if (action.payload === "Highest HP") {
+        state.filteredArray = state.filteredArray.sort((a, b) => b.hp - a.hp);
+      }
+      if (action.payload === "Lowest HP") {
+        state.filteredArray = state.filteredArray.sort((a, b) => a.hp - b.hp);
+      }
+      if (action.payload === "Lowest Attack") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => a.attack - b.attack
+        );
+      }
+      if (action.payload === "Highest Attack") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => b.attack - a.attack
+        );
+      }
+
+      if (action.payload === "Lowest Defence") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => a.defence - b.defence
+        );
+      }
+      if (action.payload === "Highest Defence") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => b.defence - a.defence
+        );
+      }
+      if (action.payload === "Lowest Speed") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => a.speed - b.speed
+        );
+      }
+      if (action.payload === "Highest Speed") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => b.speed - a.speed
+        );
+      }
+      if (action.payload === "Lowest Price") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => a.price - b.price
+        );
+      }
+      if (action.payload === "Highest Price") {
+        state.filteredArray = state.filteredArray.sort(
+          (a, b) => b.price - a.price
+        );
       }
     },
-    filterPetsByRange: (state, action) => {},
 
+    // filter by range values
     setRangeValue: (state, action) => {
-      const { attack, defence, hp, speed } = state.ranges;
-
       state.ranges[action.payload.name] = parseInt(action.payload.value);
 
       if (state.ranges[action.payload.name] === 0) {
@@ -236,14 +299,37 @@ export const petDetails = createSlice({
         return;
       }
 
-      state.filteredArray = state.data.filter(
-        (pet, index) => pet[action.payload.name] <= action.payload.value
-      );
+      state.filteredArray = state.data.filter((pet, index) => {
+        if (pet[action.payload.name] <= action.payload.value) return pet;
+      });
+    },
+
+    // clear filter
+    clearFilter: (state) => {
+      state.ranges = {
+        attack: 0,
+        defence: 0,
+        hp: 0,
+        speed: 0,
+      };
+
+      state.checkboxes = {
+        rare: false,
+        epic: false,
+        legendary: false,
+      };
+
+      state.filteredArray = state.data;
     },
   },
 });
 
-export const { filterPets, filterPetsByRange, setRangeValue } =
-  petDetails.actions;
+export const {
+  filterPets,
+  filterPetsByRange,
+  setRangeValue,
+  clearFilter,
+  filterStats,
+} = petDetails.actions;
 
 export default petDetails.reducer;

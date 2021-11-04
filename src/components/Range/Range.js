@@ -7,7 +7,7 @@ import "./Range.css";
 function Range(props) {
   const { rangeName } = props;
   const [rangeSlider, setRangeSlider] = React.useState(0);
-  const { ranges } = useSelector((state) => state.petDetails);
+  const { ranges, checkboxes } = useSelector((state) => state.petDetails);
   const dispatch = useDispatch();
   let data = {
     type: rangeName.toLowerCase(),
@@ -20,8 +20,6 @@ function Range(props) {
     dispatch(setRangeValue({ name: e.target.name, value: e.target.value }));
   };
 
-  // console.log(ranges);
-
   return (
     <div className="choose-range">
       <p className="text-white fs-14px">
@@ -32,7 +30,7 @@ function Range(props) {
           type="range"
           className="form-range range"
           min="0"
-          max="10000"
+          max={rangeName.toLowerCase() === "speed" ? "120" : "10000"}
           name={rangeName.toLowerCase()}
           onChange={handleSlider}
           value={ranges[rangeName.toLowerCase()]}

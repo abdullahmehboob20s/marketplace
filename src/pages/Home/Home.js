@@ -5,9 +5,11 @@ import Pagination from "components/Pagination/Pagination";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { filterStats } from "redux/petDetails";
 
 function Home() {
   let { data, filteredArray } = useSelector((state) => state.petDetails);
+  const dispatch = useDispatch();
 
   let [showPerPage, setshowPerPage] = useState(12);
   let [pagination, setPagination] = useState({
@@ -24,21 +26,26 @@ function Home() {
           </p>
 
           <div class="btn-toolbar text-white">
-            <select class="price-select" id="cmbFilterSort">
-              <option value="powerAsc">Lowest Attack</option>
-              <option value="powerDesc">Highest Attack</option>
-              <option value="" selected="">
+            <select
+              onClick={(e) => dispatch(filterStats(e.target.value))}
+              class="price-select"
+              id="cmbFilterSort"
+            >
+              <option value="" disabled="">
+                Select
+              </option>
+              <option value="Lowest Attack">Lowest Attack</option>
+              <option value="Highest Attack">Highest Attack</option>
+              <option value="Lowest Defence" selected="">
                 Lowest Defence
               </option>
-              <option value="priceDesc">Highest Defence</option>
-              <option value="" selected="">
-                Lowest HP
-              </option>
-              <option value="priceDesc">Highest HP</option>
-              <option value="priceDesc">Lowest Speed</option>
-              <option value="priceDesc">Highest Speed</option>
-              <option value="priceDesc">Lowest Price</option>
-              <option value="priceDesc">Highest Price</option>
+              <option value="Highest Defence">Highest Defence</option>
+              <option value="Lowest HP">Lowest HP</option>
+              <option value="Highest HP">Highest HP</option>
+              <option value="Lowest Speed">Lowest Speed</option>
+              <option value="Highest Speed">Highest Speed</option>
+              <option value="Lowest Price">Lowest Price</option>
+              <option value="Highest Price">Highest Price</option>
             </select>
           </div>
         </div>
