@@ -25,20 +25,16 @@ function Home() {
             Pets: {filteredArray?.length} pets
           </p>
 
-          {/* <div class="btn-toolbar text-white"> */}
           <select
             onClick={(e) => dispatch(filterStats(e.target.value))}
             class="price-select"
-            id="cmbFilterSort"
           >
             <option value="" disabled="">
               Select
             </option>
             <option value="Lowest Attack">Lowest Attack</option>
             <option value="Highest Attack">Highest Attack</option>
-            <option value="Lowest Defence" selected="">
-              Lowest Defence
-            </option>
+            <option value="Lowest Defence">Lowest Defence</option>
             <option value="Highest Defence">Highest Defence</option>
             <option value="Lowest HP">Lowest HP</option>
             <option value="Highest HP">Highest HP</option>
@@ -47,7 +43,6 @@ function Home() {
             <option value="Lowest Price">Lowest Price</option>
             <option value="Highest Price">Highest Price</option>
           </select>
-          {/* </div> */}
         </div>
 
         <div className="cards">

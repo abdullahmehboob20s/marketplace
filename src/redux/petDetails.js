@@ -240,7 +240,7 @@ export const petDetails = createSlice({
 
     // filter of stats of pets
     filterStats: (state, action) => {
-      console.log(action.payload);
+      console.log("jskhdajkhdjksadk");
       if (action.payload === "Highest HP") {
         state.filteredArray = state.filteredArray.sort((a, b) => b.hp - a.hp);
       }
