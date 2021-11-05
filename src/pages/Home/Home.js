@@ -10,12 +10,35 @@ import { filterStats } from "redux/petDetails";
 function Home() {
   let { data, filteredArray } = useSelector((state) => state.petDetails);
   const dispatch = useDispatch();
+  const [show, setshow] = useState(false);
+  const [dropdownValue, setdropdownValue] = useState("");
+  const menuRef = React.useRef();
 
   let [showPerPage, setshowPerPage] = useState(12);
   let [pagination, setPagination] = useState({
     start: 0,
     end: showPerPage,
   });
+
+  React.useEffect(() => {
+    const handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setshow(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
+  const selectDropdownValue = (value) => {
+    setdropdownValue(value);
+    setshow(false);
+    dispatch(filterStats(value));
+  };
 
   return (
     <SidebarNavbarWrapper>
@@ -25,24 +48,83 @@ function Home() {
             Pets: {filteredArray?.length} pets
           </p>
 
-          <select
-            onClick={(e) => dispatch(filterStats(e.target.value))}
-            class="price-select"
-          >
-            <option value="" disabled="">
-              Select
-            </option>
-            <option value="Lowest Attack">Lowest Attack</option>
-            <option value="Highest Attack">Highest Attack</option>
-            <option value="Lowest Defence">Lowest Defence</option>
-            <option value="Highest Defence">Highest Defence</option>
-            <option value="Lowest HP">Lowest HP</option>
-            <option value="Highest HP">Highest HP</option>
-            <option value="Lowest Speed">Lowest Speed</option>
-            <option value="Highest Speed">Highest Speed</option>
-            <option value="Lowest Price">Lowest Price</option>
-            <option value="Highest Price">Highest Price</option>
-          </select>
+          <div className="price-select" ref={menuRef}>
+            <div
+              className={`price-select-btn ${show ? "active" : ""}`}
+              onClick={() => setshow(!show)}
+            >
+              {dropdownValue ? dropdownValue : "Select"}{" "}
+              <span className="price-select-btn-arrow"> {">"} </span>
+            </div>
+            <div className={`price-select-dropdown ${show ? "show" : ""}`}>
+              <div
+                onClick={() => selectDropdownValue("None")}
+                className="price-select-dropdown-item"
+              >
+                None
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Lowest Attack")}
+                className="price-select-dropdown-item"
+              >
+                Lowest Attack
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Highest Attack")}
+                className="price-select-dropdown-item"
+              >
+                Highest Attack
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Lowest Defence")}
+                className="price-select-dropdown-item"
+              >
+                Lowest Defence
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Highest Defence")}
+                className="price-select-dropdown-item"
+              >
+                Highest Defence
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Lowest HP")}
+                className="price-select-dropdown-item"
+              >
+                Lowest HP
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Highest HP")}
+                className="price-select-dropdown-item"
+              >
+                Highest HP
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Lowest Speed")}
+                className="price-select-dropdown-item"
+              >
+                Lowest Speed
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Highest Speed")}
+                className="price-select-dropdown-item"
+              >
+                Highest Speed
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Lowest Price")}
+                className="price-select-dropdown-item"
+              >
+                Lowest Price
+              </div>
+              <div
+                onClick={() => selectDropdownValue("Highest Price")}
+                className="price-select-dropdown-item"
+              >
+                Highest Price
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="cards">

@@ -287,6 +287,9 @@ export const petDetails = createSlice({
           (a, b) => b.price - a.price
         );
       }
+      if (action.payload === "None") {
+        state.filteredArray = state.data;
+      }
     },
 
     // filter by range values

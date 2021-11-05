@@ -13,7 +13,18 @@
   border-bottom: 1px solid #dee2e6;
 }
 
+/*  */
 .price-select {
+  position: relative;
+}
+.price-select-btn {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+
   border-radius: 0.25rem !important;
   padding: 0.6rem 0.5rem !important;
   background-color: transparent;
@@ -23,10 +34,44 @@
   font-size: 1rem;
 }
 
-option {
-  display: block;
-  padding: 20px 0 !important;
+.price-select-btn.active {
+  border: 1px solid white !important;
 }
+
+.price-select-btn-arrow {
+  transform: rotate(90deg);
+}
+
+.price-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 102%;
+  background-color: #242735 !important;
+  border: 1px solid #545b74 !important;
+  z-index: 100000;
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  display: none;
+}
+
+.price-select-dropdown.show {
+  display: block;
+}
+
+.price-select-dropdown-item {
+  padding: 2px 0.5rem;
+  cursor: pointer;
+}
+
+.price-select-dropdown-item:hover {
+  background-color: rgb(69, 146, 218);
+  color: white;
+}
+
+/*  */
 
 .cards {
   display: grid;
