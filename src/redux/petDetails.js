@@ -257,7 +257,6 @@ export const petDetails = createSlice({
           (a, b) => b.attack - a.attack
         );
       }
-
       if (action.payload === "Lowest Defence") {
         state.filteredArray = state.filteredArray.sort(
           (a, b) => a.defence - b.defence
