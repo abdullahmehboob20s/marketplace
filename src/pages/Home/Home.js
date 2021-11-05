@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterStats } from "redux/petDetails";
 
 function Home() {
-  let { data, filteredArray } = useSelector((state) => state.petDetails);
+  let { filteredArray, selectValue } = useSelector((state) => state.petDetails);
   const dispatch = useDispatch();
   const [show, setshow] = useState(false);
   const [dropdownValue, setdropdownValue] = useState("");
@@ -53,7 +53,7 @@ function Home() {
               className={`price-select-btn ${show ? "active" : ""}`}
               onClick={() => setshow(!show)}
             >
-              {dropdownValue ? dropdownValue : "Select"}{" "}
+              {selectValue}{" "}
               <span className="price-select-btn-arrow"> {">"} </span>
             </div>
             <div className={`price-select-dropdown ${show ? "show" : ""}`}>

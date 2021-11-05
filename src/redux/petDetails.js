@@ -191,6 +191,7 @@ const initialState = {
   filteredArray: [],
   newArr: [],
   rangeActions: [],
+  selectValue: "Select",
   ranges: {
     attack: 0,
     defence: 0,
@@ -240,7 +241,7 @@ export const petDetails = createSlice({
 
     // filter of stats of pets
     filterStats: (state, action) => {
-      console.log("jskhdajkhdjksadk");
+      state.selectValue = action.payload;
       if (action.payload === "Highest HP") {
         state.filteredArray = state.filteredArray.sort((a, b) => b.hp - a.hp);
       }
